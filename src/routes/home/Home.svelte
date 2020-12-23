@@ -83,18 +83,8 @@
 {/if}
 
 <div class="banner">
-  <h1>Hello World: Welcome to Elder.js!</h1>
-  <p>Woot! You've got Elder.js installed. This template is designed to show you the ropes of how things work.</p>
-
-  <p>
-    We've tried to make this site a bit of a tutorial, but be sure to check out the full <a href="https://elderguide.com/tech/elderjs/">Elder.js
-      docs.</a>
-  </p>
-
-  <p>
-    Enjoy playing around with Elder.js and, if you hit a snag with the template, open a <a href="https://github.com/Elderjs/template/issues">GitHub
-      issue.</a>
-  </p>
+  <h1>ajcwebdev</h1>
+  <p>Woot!</p>
 </div>
 
 <div class="blog">
@@ -103,50 +93,6 @@
       <BlogTeaser {blog} {helpers} />
     {/each}
   </div>
-</div>
-
-<div class="about">
-  <h2>About This Template</h2>
-  <p>
-    This example project is made up of 4 routes; you can find them by looking within the <span
-      class="code">./src/routes/</span> folder. They are:
-  </p>
-
-  <ul>
-    <li><a href={helpers.permalinks.simple({ slug: 'simple' })}>Simple</a> - A barebones route.</li>
-    <li>Home - The page you are on.</li>
-    <li>
-      Blog - Linked from above, but you can also see a blog post by checking out: <a
-        href={helpers.permalinks.blog({ slug: 'getting-started' })}>'Getting Started'</a> .
-    </li>
-    <li>
-      Hooks - These are how you customize Elder.js. Details are below, and we've used the <span
-        class="code">hookInterface</span> to build out dedicated pages for each hook as well.
-    </li>
-  </ul>
-
-  <p>
-    The goal in showing off these 3 routes is to give you enough of an example to see how a site is built with Elder.js
-    (but one that isn't too complex to overwhelm you).
-  </p>
-  <h3>Development Environment:</h3>
-  <p>
-    If you ran <span class="code">npm start</span> to see this page, we recommend you stop that command. Instead, open two
-    terminals and run:
-  </p>
-  <ol>
-    <li>
-      <span class="code">npm run dev:server</span> - This uses nodemon to restart the development server when files change.
-    </li>
-    <li>
-      <span class="code">npm run dev:rollup</span> - This uses Rollup to recompile your Svelte templates as you change them.
-    </li>
-  </ol>
-
-  <p>
-    <strong>Note:</strong> Make sure you also check out <code>npm run build</code>, which will statically generate this same
-    site so that it can be deployed with a static site host such as Netlify, Cloudflare Workers, Vercel, or S3.
-  </p>
 </div>
 
 <div class="hydrate">
@@ -170,21 +116,6 @@
     <Clock hydrate-client={{}} />
   </div>
 </div>
-
-<h2>The Hook Interface</h2>
-
-<p>
-  Once you've digested the guides above and understand how to handle client hydration, we encourage you to explore the
-  hook interface below.
-</p>
-<p>
-  Hooks are the primary way to customize Elder.js and the list below outlines exactly what each hook can be used for.
-</p>
-<div />
-<img
-  src="https://elderguide.com/images/elderjs-hooks-v100.png"
-  alt="Elder.js hook Lifecycle"
-  style="max-width:100%; margin:1rem 0;" />
 
 <div class="hooks">
   {#each hooks as hook, i}
