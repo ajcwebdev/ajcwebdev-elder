@@ -1,13 +1,12 @@
 <script>
-  import HookDetail from '../../components/HookDetail.svelte';
+  // import HookDetail from '../../components/HookDetail.svelte';
   import BlogTeaser from '../../components/BlogTeaser.svelte';
-  import Clock from '../../components/Clock.svelte';
   export let data, helpers;
 
   export let foo;
 
   // add permalinks to the hook list so we can link to the posts.
-  const hooks = data.hookInterface.map((hook) => ({ ...hook, link: helpers.permalinks.hooks({ slug: hook.hook }) }));
+  // const hooks = data.hookInterface.map((hook) => ({ ...hook, link: helpers.permalinks.hooks({ slug: hook.hook }) }));
 </script>
 
 <style>
@@ -95,30 +94,8 @@
   </div>
 </div>
 
-<div class="hydrate">
-  <div class="left">
-    <h2>Partial Hydration:</h2>
-    <p>Svelte.js shines at bringing interactivity to otherwise static websites.</p>
-    <p>
-      By default, Elder.js statically renders Svelte components, only mounting them in the browser when it encounters a
-      Svelte component which includes the
-      <!-- Note: the actual prop is 'hydrate-client={}' but Svelte doesn't render empty objects-->
-      <code>hydrate-client={JSON.stringify({})}</code> prop.
-    </p>
-    <p>
-      The <a href="https://svelte.dev/examples#clock">clock</a> on this page is an example of a component that has been
-      hydrated on the client.
-    </p>
-    <p>This approach makes it easy to build SEO friendly websites, with Svelte for interactivity when needed.</p>
-    <p>By default all hydrated components are lazy loaded with an intersection observer.</p>
-  </div>
-  <div class="right">
-    <Clock hydrate-client={{}} />
-  </div>
-</div>
-
-<div class="hooks">
+<!-- <div class="hooks">
   {#each hooks as hook, i}
     <HookDetail {hook} {i} hookEntityDefinitions={data.hookEntityDefinitions} />
   {/each}
-</div>
+</div> -->
