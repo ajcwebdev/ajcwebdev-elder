@@ -1,168 +1,55 @@
 ---
-title: 'Getting Started with Elder.js'
-excerpt: 'You have the starter template of Elder.js running. So what is next? This guide will help you explore the project.'
-coverImage: '/assets/blog/preview/cover.jpg'
-date: '2020-03-16T05:35:07.322Z'
-author: Nick Reese
+title: 'a short history of javascript'
+excerpt: 'JavaScript is multi-paradigm, dynamically typed programming language that supports first-class functions and prototypical object-orientation.'
+coverImage: '/assets/blog/2020-04-20-javascript/a-short-history-of-javascript-cover.jpg'
+date: '2020-04-20T00:00:00.000Z'
+tags:
+  - javascript
+  - lamp
+  - mean
+  - jamstack
 ---
 
-Sweet! So you've got the Elder.js starter template up and running. What's next?
+JavaScript is multi-paradigm, dynamically typed programming language that supports first-class functions and prototypical object-orientation. Along with HTML and CSS it is the underlying technology of the browser and the world wide web. Before JavaScript, web pages were static and lacked the capability for dynamic behavior after the page was loaded in the browser. In 1995, Netscape decided to add a scripting language to Navigator, the successor to the popular Mosaic browser. To hedge their bets they pursued two routes: collaborating with Sun Microsystems to embed Java and hiring Brendan Eich to embed Scheme.
 
-Let's take a look:
+After hiring Eich, Netscape decided that the best option was to devise a new language with syntax similar to Java to capitalize on its popularity. The new language and its interpreter implementation were officially called LiveScript when first shipped as part of a Navigator release in September 1995, but the name was changed to JavaScript three months later. The standard implementation of JavaScript today is known as ECMAScript due to the ongoing copyright disputes over the name.
 
-## 4 Routes To Explore
+JavaScript has APIs for working with text, dates, regular expressions, data structures, and the Document Object Model (DOM).
 
-This project is structured to follow the required Elder.js folder structure which you can see below, but in short you've got 3 routes in the `./src/routes/` folder. They are "hooks", "home", and "blog."
+### DOM
 
-Each of these 4 routes are designed to showcase something different.
+The Document Object Model is an object representation of an html document that serves as a programming interface to select and manipulate the page. The DOM can be used to change document structure, content, and styling. It creates and propagates event objects with information about event type and target.
 
-- [Simple](/simple/) - The a simple route with an overview of how routing works in Elder.js.
-- Home - This is the simple route to illustrate the basic concepts. Open up the `./src/routes/home/route.js` file and look at how the `all` and `permalink` functions work. Then look at the `Home.svelte` to see what is going on there.
-- Blog - This route is powered entirely by the `@elderjs/plugin-markdown` which is configured in your `elder.config.js`. You can find this page's markdown at `./src/routes/blog/getting-started.md`. Try duplicating one of the existing markdown files and renaming it. You'll see that the homepage will change next time you build or reload the server.
-- Hooks - The hooks route illustrates how to add data to a page and the data flow. In the `./src/routes/hooks/route.js` file you'll see we're importing the hookInterface and then building a page for each hook using the `all` and `permalink` functions. Next open up the `./src/routes/hooks/route.js` and the `./src/routes/hooks/Hooks.svelte` to see how data is passed from request --> data --> Svelte.
+![Image](https://sedaily-topics.s3.amazonaws.com/topic_images/0_11140431928791017)
+[Source](https://data-flair.training/blogs/javascript-dom/)
 
-## Writing Your First Hook:
+The object model is a tree structure with each DOM element in a tree node. When a web page is loaded, the browser first looks for the HTML file. The browser uses the HTML and CSS files as a blueprint to build the page. The browser parses these instructions and builds a model for how the page should look and act using Javascript.
 
-Once you've explored the templates above, it is worth looking a bit at how the hooks work.
+### Events
 
-Open up the `./src/hooks.js` file and look at the hooks this project uses.
+Every user interaction with a site is an event: a click, moving the mouse, scrolling the page, pressing a key on the keyboard, etc. JavaScript allows us to add features and make modifications to our site by directly reacting to user interactions such as a button click, drag and drop, or zoom.
 
-You'll see there are a few hooks in there.
+## JavaScript Everywhere
 
-If you uncomment the hook with the name of `compressHtml` and reload this page, you'll see that the html is now compressed... but the code blocks are broken. (they always say don't compress html with regex!).
+In the early days of web development many programmers using PHP, Perl, and Ruby looked down on JavaScript as a toy language. But as websites became more interactive JavaScript started to become the elephant in the room for every web developer. Since JavaScript was the only language that ran in the browser, if a developer wanted to provide a high degree of client side interaction their only choice was to implement it in JavaScript.
 
-In plain english, this hook takes the `htmlString`, modifies it (compresses it), and returns it.
+A commonly held sentiment among some developers was that this was an unfortunate inconvenience of web development, and whenever possible code that could be written on the back end should be written on the back end. But as web sites grew increasingly interactive, developers found it increasingly difficult, and illogical, to avoid writing JavaScript. Users wanted rich client side interactions.
 
-Now that you see the power of hooks, let's have you add your first hook which illustrates how you'd add analytics code to every page of your site.
+Instead of continuing to swim against the current some developers began to embrace this inevitability. A new generation of technologies emerged that aimed to code their entire stack in JavaScript. In an attempt to create the worst marketing buzzword possible it was called isomorphic JavaScript. Others more sensibly called it "JavaScript everywhere," or as I like to say, "hella JavaScript."
 
-Copy and paste the hook below into your `hooks.js` file.
+### MEAN Stack
 
-```javascript
-  {
-    hook: 'stacks',
-    name: 'addAnalyticstoFooter',
-    description: 'Add analytics to Footer.',
-    priority: 1, // we want it to be last
-    run: async ({ footerStack }) => {
-      footerStack.push({
-        source: 'hooks',
-        string: `<!-- your analytics code here -->`,
-        priority: 1,
-      });
-      return { footerStack }
-    },
-  },
-```
+Ryan Dahl created NodeJS in 2009 because he was frustrated by Apache Server's inability to scale concurrent connections into the hundreds of thousands. He augmented Google's V8 Javascript engine with an event loop and input/output functionality. That same year, AngularJS was created by Miško Hevery as the underlying framework behind an online JSON storage service.
 
-If you reload your html, you should see the html comment from the hook.
+MongoDB was also created around the same time as an internal component of 10gen's planned PaaS product. As the database started to gain traction it eventually became the sole focus of the company and they rebranded to Mongo Inc. in 2013. MongoDB also leveraged JSON by providing a document schema instead of the dominant relational model. The final piece came in 2010 when TJ Holowaychuk created a Sinatra inspired server framework for Node called Express.js that handled routing and middleware.
 
-In this hook we are manipulating a "stack."
+One of the first attempts to build a full stack solution with only JavaScript arrived in 2012 with Meteor.js, a framework that used Node and MongoDB. The next year Valeri Karpov coined a new term in an article published on MongoDB's blog, [The MEAN Stack: MongoDB, ExpressJS, AngularJS and Node.js](https://www.mongodb.com/blog/post/the-mean-stack-mongodb-expressjs-angularjs-and).
 
-Under the hood, Elder.js uses stacks to predictably manage in what order strings are rendered.
+### Jamstack
 
-In this hook we're just adding our analytics code at a priority of 1 (last).
+The MEAN stack proved impractical for many developers due to the prohibitively large bundle size of Angular, the sprawling dependencies of Node, and the lack of ACID transactions in MongoDB.
 
-If stacks seem foreign, just remember they are a list of strings with some meta data.
+![Image](https://sedaily-topics.s3.amazonaws.com/topic_images/0_9599177836188364)
+[Source](https://medium.com/memory-leak/the-jamstack-its-pretty-sweet-e0834e4e6bb7)
 
-## Copying of Assets
-
-Another hook that you'll see is one that copies anything in your `./assets/` to the `distDir` defined in your `elder.config.js` (which is`./public/` folder by default in this project).
-
-## Hooks In Depth:
-
-Elder.js runs it's hooks system based on it's 'hookInterface'. This interface defines which hooks can do what and what properties they have.
-
-In building Elder.js we found that if anything can be mutated at anytime, a system quickly gets hard to reason about.
-
-The 'hookInterface' is designed to solve that problem. While you can explore all of the hooks on the homepage, before you go try adding a malicious hook that is designed to corrupt important data during page load.
-
-Add the hook below to your `hooks.js` file and reload this page:
-
-```javascript
-{
- hook: 'data',
- name: 'maliciousHook',
- description: 'Can we break anything?',
- priority: 1, // this will be called last
- run: async ({ helpers, data, settings, request, query }) => {
-   settings = null;
-   request = null;
-   helpers = null;
-   query = null;
-
-   return { settings, request, query, helpers }
- },
-},
-```
-
-On reload, if you check the console you'll see that this hook wasn't able to mutate any of the props due to the way the hookInterface is configured.
-
-Essentially only properties that are able to be mutated on a hook, will be mutated on the hook. This helps keep plugins and developers honest and makes maintaining the project in the future easier to reason about. :)
-
-If you're interested in exploring hooks more check out the full <a href="https://elderguide.com/tech/elderjs/">Elder.js documentation on ElderGuide</a>.
-
-## A Brief Look At Shortcodes
-
-Shortcodes are a great way to customize otherwise static content. They are especially useful when using a CMS or external content store. The most common use cases include:
-
-1. You need a placeholder for dynamic content that isn't available when the static content is written.
-1. You want a future proof way of adding 'design flair' to your site.
-1. When you need a dynamic data point that changes often and don't want to go back and update it each time it changes.
-
-Here is an example of their power:
-
-> This site has **{{numberOfPages test="this is a sentence" /}}** pages on it.
-
-If you add another page to this site, you'll see that the number of pages above adjusts accordingly. This dynamic ability is powered via a shortcode which you can see in `./src/shortcodes.js`.
-
-Usually this sort of customization takes a ton of preprocessing, parsing, etc, but Elder.js handles it all for you. Simply define a shortcode and a function that returns what you want it to be replaced with and Elder.js will handle the rest.
-
-**Learning Opportunities:**
-
-1. Try using the 'box' shortcode to see how to add design flair.
-1. Think about how you could use a shortcode to fetch data from an external API and how that would add major flexibility to your static content.
-1. Try adding a "Clock" Svelte component to this page. (Details in the `./src/shortcodes.js`)
-
-**Out of the Box Usecases**
-
-1. Pulling in your latest Tweets or replies to one of your tweets.
-1. You run your own ad platform for your site. You can use a shortcode that hits an external API allowing you render your ads on the server.
-1. You want to embed arbitrary JS on the page (event tracking or something) but only when a shortcode is present. (totally doable)
-1. You need to add `ld+json` to your head for a specific page, but don't have it wired into the template. You could use a shortcode to do so.
-
-## Elder.js Project Structure
-
-Under the hood Elder.js does quite a bit of magic based on the file structure below but more importantly the `rollup.config.js` is setup to match this file structure. Since Rollup handles all of the bundling of our Svelte components, we recommend you follow this structure unless you like tinkering with bundlers.
-
-```
-Project Root
-| elder.config.js
-| package.json
-| rollup.config.js
-| ... (other common stuff, .gitignore, svelte.config.js... etc)
-| -- src
-| -- | -- build.js
-| -- | -- server.js
-| -- | -- hooks.js
-| -- | -- shortcodes.js
-| -- helpers
-| -- | -- index.js
-| -- | -- ...
-| -- layouts
-| -- | -- Layout.svelte
-| -- routes
-| -- | -- [route] ('blog' in this example)
-| -- | -- | -- Blog.svelte
-| -- | -- | -- route.js
-| -- plugins
-| -- | -- [plugin] ('elderjs-plugin-your-plugin' for example)
-| -- | -- | -- index.js
-| -- components
-| -- | -- [component] ('Contact' in this example)
-| -- | -- | -- Contact.svelte
-
-
-On this Project:
-| -- assets
-| -- | -- items to be copied to the 'distDir' defined in your 'elder.config.js'. See hooks.js.
-```
+The Jamstack is a radical departure that attempts to serve static files from globally distributed CDN's, removing the server and the database from the stack entirely. GraphQL API's are used as a glue layer for message passing between the CDN, 3rd party plugins, and users of your app. Lastly, markdown can be used for creating websites, documents, notes, books, presentations, email messages, and technical documentation.
